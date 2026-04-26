@@ -1,0 +1,15 @@
+# Laravel
+/api/vendor/
+/api/.env
+/api/storage/*.key
+/api/public/storage
+/api/bootstrap/cache/*
+
+# React / Node
+/client/node_modules/
+/client/dist/
+/client/.env.local
+
+# System
+.DS_Store
+Thumbs.db
