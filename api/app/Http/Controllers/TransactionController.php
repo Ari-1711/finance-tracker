@@ -11,6 +11,7 @@ class TransactionController extends Controller
     // 1. Mengambil semua transaksi milik user yang login
     public function index()
     {
+        // Mengambil transaksi lewat relasi yang sudah kita buat di model User
         $transactions = Auth::user()->transactions()->orderBy('date', 'desc')->get();
         
         return response()->json([
@@ -19,10 +20,9 @@ class TransactionController extends Controller
         ]);
     }
 
-    // 2. Menyimpan transaksi baru (Input Manual + Link Firebase)
+    // 2. Menyimpan transaksi baru
     public function store(Request $request)
     {
-        // Validasi input agar data yang masuk tidak ngawur
         $validated = $request->validate([
             'title'    => 'required|string|max:255',
             'amount'   => 'required|numeric',
@@ -30,10 +30,10 @@ class TransactionController extends Controller
             'category' => 'required|string',
             'source'   => 'nullable|string',
             'date'     => 'required|date',
-            'receipt_url' => 'nullable|string', // URL dari Firebase di React
+            'receipt_url' => 'nullable|string',
         ]);
 
-        // Simpan data melalui relasi User (Otomatis mengisi user_id)
+        // Simpan data otomatis terhubung dengan ID user yang sedang login
         $transaction = Auth::user()->transactions()->create($validated);
 
         return response()->json([
@@ -41,5 +41,5 @@ class TransactionController extends Controller
             'message' => 'Transaksi berhasil dicatat!',
             'data'    => $transaction
         ], 201);
-    }
+}
 }

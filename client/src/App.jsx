@@ -20,6 +20,9 @@ function App() {
           <p>
             Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
           </p>
+          <h1 className="text-3xl font-bold text-blue-600 underline">
+           Hello Tailwind!
+          </h1>
         </div>
         <button
           type="button"

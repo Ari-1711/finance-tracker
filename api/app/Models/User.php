@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens; // Pastikan ini ada untuk React nantinya
+use Laravel\Sanctum\HasApiTokens;
+use App\Models\Transaction; // Pastikan ini ada untuk React nantinya
 
 class User extends Authenticatable
 {
