@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:8000/api', // Alamat Backend Laravel
+    baseURL: 'http://10.23.236.36:8000/api', // Alamat Backend Laravel
 });
 
 // Otomatis tempelkan Token jika user sudah login
