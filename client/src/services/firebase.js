@@ -1,11 +1,7 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCRAoEYCWPPFtvstnu2fha2W4rdbbSs4jg",
   authDomain: "financetracker-63abc.firebaseapp.com",
@@ -16,6 +12,9 @@ const firebaseConfig = {
   measurementId: "G-ET2VNDV2H7"
 };
 
-// Initialize Firebase
+// Inisialisasi Firebase (Cukup sekali saja)
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+
+// Export agar bisa dipakai di Login.jsx dan Dashboard.jsx
+export const auth = getAuth(app);
+export const db = getFirestore(app);
